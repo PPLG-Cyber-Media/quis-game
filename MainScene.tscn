@@ -1,0 +1,829 @@
+[gd_scene load_steps=53 format=3 uid="uid://coc37ofvp5cta"]
+
+[ext_resource type="Texture2D" uid="uid://bvqthuyy5mlul" path="res://Assets/background.jpg" id="1_ai1io"]
+[ext_resource type="Script" uid="uid://b44au8nwa63bx" path="res://MainScene.gd" id="1_awi65"]
+[ext_resource type="Script" uid="uid://bn2kjxnegv1jt" path="res://Movement.gd" id="2_gj861"]
+[ext_resource type="Texture2D" uid="uid://cge2fbx4uyxoh" path="res://Assets/character_idle.png" id="2_lwanq"]
+[ext_resource type="Texture2D" uid="uid://cbcdw7y5nmrej" path="res://Assets/death.png" id="2_xq0yx"]
+[ext_resource type="Texture2D" uid="uid://dragtr5uk0wsu" path="res://Assets/character_jump.png" id="4_t3jco"]
+[ext_resource type="Texture2D" uid="uid://cbhdxm7ur6tde" path="res://Assets/lava_wave.png" id="5_a2bf6"]
+[ext_resource type="Texture2D" uid="uid://cxvhnolhqkqnd" path="res://Assets/fire.png" id="6_7res3"]
+[ext_resource type="PackedScene" uid="uid://ci2j073jjf1pj" path="res://ladder.tscn" id="8_a72mn"]
+[ext_resource type="FontFile" uid="uid://bgm8nifimlqqn" path="res://Assets/Jersey10-Regular.ttf" id="8_iftvi"]
+[ext_resource type="Texture2D" uid="uid://briie5dppccw5" path="res://Assets/ui/red_panel.png" id="9_tlxy1"]
+[ext_resource type="Texture2D" uid="uid://c3ut06mstb783" path="res://Assets/ui/red_button02.png" id="10_0nqiv"]
+[ext_resource type="Texture2D" uid="uid://bp6h4luto4vxn" path="res://Assets/ui/red_button00.png" id="11_1hodv"]
+[ext_resource type="Texture2D" uid="uid://58vpfjdiselu" path="res://Assets/ui/red_button01.png" id="12_t22rb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6vle"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x0y2"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf3py"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkj60"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa517"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7v4v"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h0v1"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdmxe"]
+atlas = ExtResource("2_xq0yx")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp34d"]
+atlas = ExtResource("2_lwanq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h41nr"]
+atlas = ExtResource("2_lwanq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bee7q"]
+atlas = ExtResource("2_lwanq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd46s"]
+atlas = ExtResource("2_lwanq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o28du"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0nme"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_150n5"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01us7"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlsui"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72lq8"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ras1t"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vds5i"]
+atlas = ExtResource("4_t3jco")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fb4xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6vle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x0y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf3py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkj60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa517")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7v4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h0v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdmxe")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp34d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h41nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bee7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd46s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o28du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0nme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_150n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01us7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlsui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72lq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ras1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vds5i")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyo4a"]
+size = Vector2(71, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dxgd"]
+atlas = ExtResource("6_7res3")
+region = Rect2(0, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfskw"]
+atlas = ExtResource("6_7res3")
+region = Rect2(31, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu41m"]
+atlas = ExtResource("6_7res3")
+region = Rect2(62, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h181a"]
+atlas = ExtResource("6_7res3")
+region = Rect2(93, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e5ms"]
+atlas = ExtResource("6_7res3")
+region = Rect2(124, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmon5"]
+atlas = ExtResource("6_7res3")
+region = Rect2(155, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v1g4"]
+atlas = ExtResource("6_7res3")
+region = Rect2(186, 0, 31, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5y6nc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dxgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfskw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu41m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h181a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e5ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmon5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v1g4")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q54re"]
+size = Vector2(566, 89)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0fnpg"]
+texture = ExtResource("9_tlxy1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evues"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evivx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0ch2"]
+texture = ExtResource("10_0nqiv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yau7"]
+texture = ExtResource("11_1hodv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_36yc8"]
+texture = ExtResource("12_t22rb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cnqq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("quis_label", "answer1_button", "answer2_button", "score_label")]
+script = ExtResource("1_awi65")
+ladder_ground = ExtResource("8_a72mn")
+quis_label = NodePath("CanvasLayer/UI/PanelQuis/Quis")
+answer1_button = NodePath("CanvasLayer/UI/PanelAnswer/HSplitContainer/Answer")
+answer2_button = NodePath("CanvasLayer/UI/PanelAnswer/HSplitContainer/Answer2")
+score_label = NodePath("CanvasLayer/UI/PanelScore/Score")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+z_index = 1
+position = Vector2(274, 461)
+script = ExtResource("2_gj861")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_fb4xa")
+animation = &"die"
+autoplay = "idle"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-2.5, 4.5)
+shape = SubResource("RectangleShape2D_wyo4a")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Ladder" type="Node2D" parent="."]
+position = Vector2(0, 545)
+
+[node name="LadderGround" parent="Ladder" instance=ExtResource("8_a72mn")]
+position = Vector2(270, 29)
+
+[node name="DeathZone" type="Area2D" parent="." groups=["DeathZone"]]
+position = Vector2(0, 770)
+
+[node name="Lava" type="Node2D" parent="DeathZone"]
+position = Vector2(250, 0)
+
+[node name="LavaSprite" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(-309.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite2" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(-247.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite3" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(-185.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite4" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(-123.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite5" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(-61.6, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite6" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(0.400024, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite7" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(62.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite8" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(124.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite9" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite10" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite11" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite12" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite13" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite14" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite15" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite16" type="Sprite2D" parent="DeathZone/Lava"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="Lava2" type="Node2D" parent="DeathZone"]
+position = Vector2(250, 62)
+
+[node name="LavaSprite" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(-309.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite2" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(-247.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite3" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(-185.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite4" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(-123.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite5" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(-61.6, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite6" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(0.400024, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite7" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(62.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite8" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(124.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite9" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite10" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite11" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite12" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite13" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite14" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite15" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite16" type="Sprite2D" parent="DeathZone/Lava2"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="Lava3" type="Node2D" parent="DeathZone"]
+position = Vector2(250, 123)
+
+[node name="LavaSprite" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(-309.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite2" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(-247.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite3" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(-185.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite4" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(-123.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite5" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(-61.6, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite6" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(0.400024, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite7" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(62.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite8" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(124.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite9" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite10" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite11" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite12" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite13" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite14" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite15" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite16" type="Sprite2D" parent="DeathZone/Lava3"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="Lava4" type="Node2D" parent="DeathZone"]
+position = Vector2(250, 185)
+
+[node name="LavaSprite" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(-309.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite2" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(-247.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite3" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(-185.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite4" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(-123.8, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite5" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(-61.6, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite6" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(0.400024, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite7" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(62.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite8" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(124.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite9" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite10" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite11" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite12" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite13" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(186.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite14" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(248.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite15" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(310.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="LavaSprite16" type="Sprite2D" parent="DeathZone/Lava4"]
+position = Vector2(372.4, 0)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("5_a2bf6")
+
+[node name="Fire" type="Node2D" parent="DeathZone"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(0, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.345931
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(67, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.0298515
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(137.098, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.991014
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(204.098, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.589289
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(271.098, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.802693
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(338.098, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.746515
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(408.195, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.95698
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(475.195, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.0298742
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(547.098, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.663963
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="DeathZone/Fire"]
+position = Vector2(614.098, -72)
+scale = Vector2(2.845, 2.845)
+sprite_frames = SubResource("SpriteFrames_5y6nc")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.554701
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(268, -12.5)
+shape = SubResource("RectangleShape2D_q54re")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(199, 480)
+scale = Vector2(0.6705, 1)
+texture = ExtResource("1_ai1io")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelQuis" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 138.0
+grow_horizontal = 2
+
+[node name="Quis" type="Label" parent="CanvasLayer/UI/PanelQuis"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = -16.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_iftvi")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxTexture_0fnpg")
+text = "Quis?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelAnswer" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_evues")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/UI/PanelAnswer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 13.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 250
+dragger_visibility = 1
+
+[node name="Answer" type="Button" parent="CanvasLayer/UI/PanelAnswer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_iftvi")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxTexture_evivx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h0ch2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2yau7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_36yc8")
+text = "Answer"
+
+[node name="Answer2" type="Button" parent="CanvasLayer/UI/PanelAnswer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_iftvi")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxTexture_evivx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h0ch2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2yau7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_36yc8")
+text = "Answer"
+
+[node name="PanelScore" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -332.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3cnqq")
+
+[node name="Score" type="Label" parent="CanvasLayer/UI/PanelScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_iftvi")
+theme_override_font_sizes/font_size = 41
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="pressed" from="CanvasLayer/UI/PanelAnswer/HSplitContainer/Answer" to="." method="_on_answer_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PanelAnswer/HSplitContainer/Answer2" to="." method="_on_answer_2_pressed"]

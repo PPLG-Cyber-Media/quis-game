@@ -1,0 +1,131 @@
+[gd_scene load_steps=14 format=3 uid="uid://dkk4545ap8apm"]
+
+[ext_resource type="Script" uid="uid://d3olfrld6pixq" path="res://game_over.gd" id="1_3o670"]
+[ext_resource type="Texture2D" uid="uid://bvqthuyy5mlul" path="res://Assets/background.jpg" id="1_6elhk"]
+[ext_resource type="FontFile" uid="uid://bgm8nifimlqqn" path="res://Assets/Jersey10-Regular.ttf" id="2_yb45k"]
+[ext_resource type="Texture2D" uid="uid://briie5dppccw5" path="res://Assets/ui/red_panel.png" id="3_mayd1"]
+[ext_resource type="Texture2D" uid="uid://c3ut06mstb783" path="res://Assets/ui/red_button02.png" id="4_q6gne"]
+[ext_resource type="Texture2D" uid="uid://bp6h4luto4vxn" path="res://Assets/ui/red_button00.png" id="5_drqe6"]
+[ext_resource type="Texture2D" uid="uid://58vpfjdiselu" path="res://Assets/ui/red_button01.png" id="6_p1px5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4o87"]
+texture = ExtResource("3_mayd1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rssxr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bkyrh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udtga"]
+texture = ExtResource("4_q6gne")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6xei"]
+texture = ExtResource("5_drqe6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5sek0"]
+texture = ExtResource("6_p1px5")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3o670")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(199, 480)
+scale = Vector2(0.6705, 1)
+texture = ExtResource("1_6elhk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelQuis" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -170.0
+offset_right = 273.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quis" type="Label" parent="CanvasLayer/UI/PanelQuis"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = -16.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yb45k")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxTexture_p4o87")
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelAnswer" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -25.0
+offset_right = 268.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rssxr")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/UI/PanelAnswer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 13.0
+offset_right = -9.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 250
+dragger_visibility = 1
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI/PanelAnswer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yb45k")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxTexture_bkyrh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_udtga")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d6xei")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5sek0")
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/UI/PanelAnswer/HSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yb45k")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxTexture_bkyrh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_udtga")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d6xei")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5sek0")
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/UI/PanelAnswer/HSplitContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PanelAnswer/HSplitContainer/MainMenu" to="." method="_on_main_menu_pressed"]
